@@ -93,7 +93,8 @@ namespace StudentExercisesMVC.Controllers
 
                             if (!reader.IsDBNull(reader.GetOrdinal("StudentId")))
                             {
-                                
+                                if (!cohort.StudentList.Exists(x => x.Id == reader.GetInt32(reader.GetOrdinal("StudentId"))))
+                                {
                                     cohort.StudentList.Add(
                                     new Student
                                     {
@@ -102,9 +103,25 @@ namespace StudentExercisesMVC.Controllers
                                         LastName = reader.GetString(reader.GetOrdinal("StudentLastName")),
                                     }
                                 );
-                                
+                                }
                             }
-                           
+
+                            if (!reader.IsDBNull(reader.GetOrdinal("InstructorId")))
+                            {
+                                if (!cohort.InstructorList.Exists(x => x.Id == reader.GetInt32(reader.GetOrdinal("InstructorId"))))
+
+                                {
+                                    cohort.InstructorList.Add(
+                                        new Instructor
+                                        {
+                                            Id = reader.GetInt32(reader.GetOrdinal("InstructorId")),
+                                            FirstName = reader.GetString(reader.GetOrdinal("InstructorFirstName")),
+                                            LastName = reader.GetString(reader.GetOrdinal("InstructorLastName"))
+                                        }
+                                    );
+                                }
+                            }
+
                         }
                     }
 

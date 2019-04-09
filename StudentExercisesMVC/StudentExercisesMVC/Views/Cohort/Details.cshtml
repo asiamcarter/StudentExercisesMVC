@@ -31,6 +31,15 @@
                 @Html.DisplayFor(model => student.FirstName)
             </dd>
         }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InstructorList)
+        </dt>
+        @foreach (StudentExercisesMVC.Model.Instructor instructor in Model.InstructorList)
+        {
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => instructor.FirstName)
+            </dd>
+        }
     </dl>
 </div>
 <div>
