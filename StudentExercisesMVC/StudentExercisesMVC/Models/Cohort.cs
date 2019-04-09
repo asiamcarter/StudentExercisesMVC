@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SEWebApi.Model
+namespace StudentExercisesMVC.Model
 {
     public class Cohort
     {
